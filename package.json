@@ -24,7 +24,7 @@
     "install.js",
     "plugin.js"
   ],
-  "repository": "wejs/we-plugin-file-youtube",
+  "repository": "wejs/we-plugin-file-gdrive",
   "author": "Alberto Souza <contato@albertosouza.net>",
   "license": "MIT",
   "wejs": {
