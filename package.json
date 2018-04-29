@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-file-gdrive",
   "description": "We.js Google Drive file storage plugin for upload files to Google drive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "plugin.js",
   "scripts": {
     "test": "echo 'TODO!'"
