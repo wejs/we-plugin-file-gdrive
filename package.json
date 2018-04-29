@@ -1,0 +1,41 @@
+{
+  "name": "we-plugin-file-gdrive",
+  "description": "We.js Google Drive file storage plugin for upload files to Google drive",
+  "version": "0.0.0",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo 'TODO!'"
+  },
+  "dependencies": {
+    "request": "^2.85.0",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "wejs-plugin",
+    "storage",
+    "GoogleDrive"
+  ],
+  "files": [
+    "files/public",
+    "lib",
+    "locales",
+    "server",
+    "install.js",
+    "plugin.js"
+  ],
+  "repository": "wejs/we-plugin-file-youtube",
+  "author": "Alberto Souza <contato@albertosouza.net>",
+  "license": "MIT",
+  "wejs": {
+    "dependencies": {
+      "we-plugin-file": true,
+      "we-plugin-google-api": true
+    },
+    "plugins": {
+      "we-plugin-file": true,
+      "we-plugin-user": true,
+      "we-plugin-google-api": true
+    }
+  }
+}

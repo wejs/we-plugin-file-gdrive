@@ -1,0 +1,64 @@
+<div id="{{fieldId}}"
+     class="form-group {{#if error}}has-error has-feedback{{/if}}"
+     data-multiple="{{#if field.formFieldMultiple}}true{{else}}false{{/if}}" >
+
+  <label for="{{fieldId}}">{{{label}}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
+
+  <button id="{{fieldId}}BTNSelector"
+      type="button"
+      onclick="we.components.audioSelector.selectForField('#{{fieldId}}', '{{name}}');"
+      class="btn btn-default"
+      {{#unless field.formFieldMultiple}}
+        {{#ifCond value 'null'}}{{else}}{{#if value}}style="display:none;"{{/if}}{{/ifCond}}
+      {{/unless}} >
+    {{t 'file.audio.select.btn'}}
+  </button>
+
+  <input name="{{name}}" type="hidden" value="null">
+
+  <table id="{{fieldId}}Table" class="table table-bordered"
+    {{#ifCond value 'null'}}style="display:none;"{{/ifCond}}
+    {{#unless value}}style="display:none;"{{/unless}} >
+    <thead><tr>
+      <th>{{t 'Name'}}</th>
+      <th>{{t 'Actions'}}</th>
+    </tr></thead>
+    <tbody>
+      {{#each value}}
+
+        {{#if this.id}}
+          <tr>
+            <td><we-audio-description data-id="{{id}}"></we-audio-description></td>
+            <td>
+              <button onclick="we.components.audioSelector.removeAudio(this, '#{{../fieldId}}')" type="button" class="btn btn-danger">{{t 'audio.remove'}}</button>
+              <input name="{{../name}}" type="hidden" value="{{id}}">
+            </td>
+          </tr>
+        {{else}}
+          <tr>
+            <td>
+               <we-file-description data-id="{{this}}"></we-file-description>
+            </td>
+            <td>
+              <button onclick="we.components.audioSelector.removeAudio(this, '#{{../fieldId}}')" type="button" class="btn btn-danger">{{t 'audio.remove'}}</button>
+              <input name="{{../name}}" type="hidden" value="{{this}}">
+            </td>
+          </tr>
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
+  {{!-- each audio template --}}
+  <div id="{{fieldId}}FieldTemplates" style="display:none;">
+    <table><tr>
+      <td data-file-name></td>
+      <td>
+        <button onclick="we.components.audioSelector.removeAudio(this, '#{{fieldId}}')" type="button" class="btn btn-danger">{{t 'file.remove'}}</button>
+      </td>
+    </tr></table>
+  </div>
+
+  <p class="help-block">{{{help}}}</p>
+
+  {{{field-help-error error}}}
+</div>

@@ -1,0 +1,36 @@
+{{!-- audio selector --}}
+<div aria-hidden="true" class="modal" id="audioSelectorFormModal">
+  <div class="modal-dialog modal-lg audio-selector-modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+        <h4 class="modal-title">{{t 'audio.selector'}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="audio-uploader-messages"></div>
+
+<div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#audioUploadTab" aria-controls="audioUploadTab" role="tab" data-toggle="tab">{{t 'audio.uploader.title'}}</a></li>
+  </ul>
+  <div class="tab-content">
+    <br>
+    <div role="tabpanel" class="tab-pane active" id="audioUploadTab">.
+      <span class="btn btn-success fileinput-button">
+        <span class="glyphicon glyphicon-plus"></span>
+        <label for="file-upload-audio-field">{{t 'audio.upload.selector.btn'}}</label>
+        <input id="file-upload-audio-field" class="audioupload fileupload" type="file" data-url="/api/v1/audio" name="audio" accept="audio/*">
+      </span>
+
+      <br>
+      <br>
+      <div class="progress" style="display:none;">
+        <div class="progress-bar progress-bar-success"></div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
