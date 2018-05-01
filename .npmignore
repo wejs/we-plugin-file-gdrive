@@ -7,3 +7,5 @@ files/uploads
 .gitignore
 *.log
 config
+yarn-error.lock
+yarn.lock

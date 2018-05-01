@@ -3,3 +3,5 @@ node_modules
 coverage
 config
 *.log
+yarn-error.lock
+yarn.lock

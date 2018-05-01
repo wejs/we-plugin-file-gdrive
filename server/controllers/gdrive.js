@@ -63,12 +63,18 @@ module.exports = {
         ss = we.systemSettings;
 
       const headers = {
-        'User-Agent': req.headers['user-agent'],
         'Authorization': 'Bearer '+GA.oAuth2Client.credentials.access_token,
         'X-Upload-Content-Type': req.body.type,
-        'X-Upload-Content-Length': req.body.size,
-        'Origin': req.headers.origin
+        'X-Upload-Content-Length': req.body.size
       };
+
+      if (req.headers.origin) {
+        headers.Origin = req.headers.origin;
+      } else if (req.headers['x-origin']) {
+        headers.Origin = req.headers['x-origin'];
+      } else {
+        we.log.warn('getUploadUrl:origin not found');
+      }
 
       request({
         url: 'https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable',
@@ -179,12 +185,18 @@ module.exports = {
         ss = we.systemSettings;
 
       const headers = {
-        'User-Agent': req.headers['user-agent'],
         'Authorization': 'Bearer '+GA.oAuth2Client.credentials.access_token,
         'X-Upload-Content-Type': req.body.type,
-        'X-Upload-Content-Length': req.body.size,
-        'Origin': req.headers.origin
+        'X-Upload-Content-Length': req.body.size
       };
+
+      if (req.headers.origin) {
+        headers.Origin = req.headers.origin;
+      } else if (req.headers['x-origin']) {
+        headers.Origin = req.headers['x-origin'];
+      } else {
+        we.log.warn('getUploadUrl:origin not found');
+      }
 
       request({
         url: 'https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable',
@@ -232,4 +244,4 @@ module.exports = {
       });
     });
   }
-}
+};
